@@ -1,0 +1,104 @@
+<head>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="headWrapper">
+        <div class="fon-wrapper">
+            <img src="./Media/shapka.png" class="shapka">
+        </div>
+        <div class="shiBig">
+            <div class="btnWrapper">
+                    <img src="./Media/shi1.png" class="btn" id="newsBtn">
+                </a>
+                <img src="./Media/shi2.png" class="btn" id="membersBtn">
+                <img src="./Media/shi3.png" class="btn" id="contactBtn">
+            </div>
+            <img src="./Media/shiBig.png" >
+        </div>
+    </div>
+    <div class="main">
+        <img src="./Media/about.png"       class="mainEl" style="margin-top: 128;">
+        <img src="./Media/about2.png"      class="mainEl" style="margin-top: 75;">
+        <img src="./Media/partText.png"    class="mainEl" style="margin-top: 275;">
+        <a href="https://google.com" class="mainEl" style="margin-top: 75;">
+            <img src="./Media/partButton.png" class="snet">
+        </a>
+        <img src="./Media/downloadIt.png"  class="mainEl" style="margin-top: 218;">
+        <img src="./Media/smartphones.png" class="mainEl" style="margin-top: 42;">
+        <img src="./Media/registerNow.png" class="mainEl" style="margin-top: 57;">
+        <img src="./Media/news.png"        class="mainEl" style="margin-top: 138;" id="news">
+        <div class="mainEl" style="margin-top: 88;">
+            <img src="./Media/trio1.png">
+            <img src="./Media/trio2.png">
+            <img src="./Media/trio3.png">
+        </div>
+        <img src="./Media/members.png"    class="mainEl" style="margin-top: 186;" id="members">
+        <img src="./Media/map.png"        class="mainEl" style="margin-top: 203; margin-bottom: 145;">
+        <img src="./Media/chinaLeft.png"  class="treeLeft"  style="top: 1275" >
+        <img src="./Media/chinaRight.png" class="treeRight" style="top: 2025;" >
+        <img src="./Media/chinaLeft.png"  class="treeLeft"  style="top: 3039px" >
+        <img src="./Media/chinaRight.png" class="treeRight" style="top: 3950px;" >
+        <div class="bottomWrapper">
+            <div class="podval-wrapper">
+                <img src="./Media/pdvl.png" id="pdvl" id="podval">
+            </div>
+            <div class="podval-items">
+                 <div  class="pdi" id="pdi1">
+                    <img src="./Media/pdi1_noTGVK.png">
+                    <div class="snetBox">
+                        <a href="https://t.me/Corvus_Corax_4111">
+                            <img src="./Media/tg.png" class="snet">
+                        </a>
+                        <a href="https://vk.com/id0">
+                            <img src="./Media/vk.png" class="snet">
+                        </a>
+                    </div>
+                 </div>
+                <img src="./Media/pd2.png" class="pdi" id="pdi2">
+                <img src="./Media/pd3.png" class="pdi" id="pdi3">
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    (function () {
+        const DURATION = 500; // ms
+
+        function smoothScrollTo(targetY, multi = 1) {
+            const startY = window.scrollY;
+            const delta = targetY - startY;
+            const startTime = performance.now();
+
+            function step(now) {
+                const progress = Math.min((now - startTime) / (DURATION * multi), 1);
+                const ease = progress * (2 - progress); // easeOutQuad
+                window.scrollTo(0, startY + delta * ease);
+
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                }
+            }
+
+            requestAnimationFrame(step);
+        }
+
+        function scrollToElement(el, multi = 1) {
+            if (!el)
+                return;
+            const y = el.getBoundingClientRect().top + window.scrollY;
+            smoothScrollTo(y, multi);
+        }
+
+        document.getElementById('newsBtn')?.addEventListener('click', () => {
+            scrollToElement(document.getElementById('news'), 1.5);
+        });
+
+        document.getElementById('membersBtn')?.addEventListener('click', () => {
+            scrollToElement(document.getElementById('members'), 1.75);
+        });
+
+        document.getElementById('contactBtn')?.addEventListener('click', () => {
+            smoothScrollTo(document.body.scrollHeight, 2);
+        });
+    })();
+</script>
